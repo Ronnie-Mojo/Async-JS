@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body>
+    <main>
+        <h1>All about aync js and setTimeout functiomn</h1>
+
+        <button id="stopbtn">stop</button>
+    </main>
+
+   <script> 
+       const sayAsync = function(){
+        console.log("hello async js")
+      } ;
+
+   const changeText = function(){
+    document.querySelector('h1').innerHTML="keep learning";
+    console.log("chanhed h1")
+   }
+    
+   document.querySelector('#stopbtn').addEventListener('click', function () {
+    clearInterval(setTime);
+    console.log("stopped")
+   } , false )
+
+const setTime = setTimeout( changeText, 2000 );
+
+   
+ 
+
+                          
+</script>
+</body>
+</html>
