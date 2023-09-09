@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectU.C.</title>
+</head>
+<body>
+    <main>
+        <h1>Unlimited colours</h1>
+         
+        <button style="margin-right: 20px; border-radius: 20px;" id="startbtn">start</button>
+        <button style="margin-left: 15px; border-radius: 20px;" id="stopbtn">stop</button>
+       
+
+    </main>
+
+   <script> 
+
+   const randomColor = () => {
+    let hex = "0123456789ABCDEF";
+    let color = "#"
+    for(let i = 0; i < 6; i++){
+       color += hex[Math.floor(Math.random()*16)];
+    }
+    console.log(color)
+    return color;
+   }
+
+
+let intervalId;
+
+
+const startChangingColors =()=> {
+    if(!intervalId){
+        intervalId = setInterval( changingColor , 1000);
+    }
+    function changingColor(){
+        document.body.style.backgroundColor = randomColor();
+ } 
+ };
+
+ const stopChangingColors =()=>{
+    clearInterval(intervalId);
+    console.log("stopped")
+    intervalId = null;
+    console.log(`intervalId = ${intervalId}`)
+ }
+
+   const startBtn = document.querySelector("#startbtn").addEventListener('click' , 
+   startChangingColors ,false);
+
+   const stopBtn = document.querySelector("#stopbtn").addEventListener('click' ,
+   stopChangingColors,false);
+
+  
+                       
+</script>
+</body>
+</html>
