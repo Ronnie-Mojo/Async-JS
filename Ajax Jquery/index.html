@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // let content = $('#para').text('UpdatedJquery');
+        // console.log(content);
+        // $('#para').attr('class','myclass');
+        // $('#para').removeAttr('class');
+        // let result = $('input[type="text"]').val('newValue');
+        // console.log(result)
+        // $('#para').addClass('highlight');
+        // $('myDiv').css('background-color','yellow');
+        // $('myDiv').width(200) ;
+        // $('myDiv').hide() ;
+        
+        // $('button').click(function(){
+        // alert("button clicked");
+        // });
+
+        // $('#myDiv').animate({
+        //  width:'200px',
+        //  height:'200px',
+        //  opacity:0.5
+        // }, 10000);
+
+
+        $.ajax({
+            url:'https://dummyjson.com/products',
+            method: 'GET',
+            dataTypes: 'json',
+            success: function(response){
+                //  Update the DOM with the recievd data
+                $('#result').text(response.data);
+            },
+            error:function(xhr, status, error){
+                // handle error
+                console.log(error);
+            }
+        });
+ 
+        // Second way to handle api request
+        //  Use of Promise
+
+        $.ajax('https://dummyjson.com/products')
+      .done(function(response){
+        //    Handle the response
+      })
+      .fail(function(xhe, status, error){
+        //   Handle error
+      })
+
+      });
+
+    
+    </script>
+</head>
+<body>
+    <button>submit</button>
+    <input type="text" value="myInput22"/>
+    <div id="myDiv" style="background-color: aqua;">Can't you see</div>
+    <p id="para">This is Jquery</p>
+    
+</body>
+</html>
